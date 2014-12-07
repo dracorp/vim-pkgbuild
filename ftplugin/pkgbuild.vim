@@ -4,11 +4,11 @@ setlocal foldmethod=expr
 setlocal foldcolumn=4
 setlocal foldexpr=pkgbuild#PkgbuildExpr(v:lnum)
 
-function! s:MakeAur(...) "{{{
-   execute "!mkaurball " .  "a:000"
+function! s:MakeAur() "{{{
+   execute "!mkaurball "
 endfunction "}}}
-function! s:MakePkg(...) "{{{
-    execute "!makepkg -m" . "a:000"
+function! s:MakePkg() "{{{
+    execute "!makepkg -m"
 endfunction "}}}
 function! s:UpdPkgSums() "{{{
     execute "!updpkgsums"
@@ -47,6 +47,6 @@ function! pkgbuild#PkgbuildExpr(lnum) "{{{
     endif
 endfunction "}}}
 
-command! -nargs=* MakePkg call <SID>MakePkg(<q-args>)
-command! -nargs=* MakeAur call <SID>MakeAur(<q-args>)
+command! -nargs=* MakePkg call <SID>MakePkg()
+command! -nargs=* MakeAur call <SID>MakeAur()
 command! -nargs=0 UpdPkgSums call <SID>UpdPkgSums()
