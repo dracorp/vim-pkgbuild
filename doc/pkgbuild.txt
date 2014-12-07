@@ -1,0 +1,33 @@
+*pkgbuild.txt*                    vim-PKGBUILD                     November 2014
+                            Plugin version 0.1
+                                Piotr Rogoża
+==============================================================================
+0  TABLE OF CONTENTS                                *pkgbuild-contents*
+==============================================================================
+
+
+==============================================================================
+1  COMMANDS                                *pkgbuild-commands*
+==============================================================================
+
+updpkgsums
+    Generate md5sums or sha1sums, sha256sums, sha384sums, sha512sums (arrays)
+    for a PKGBUILD. See 'man PKGBUILD' or 'man makepkg'
+
+mkaurball
+    Make source package ready to upload to AUR
+
+make
+    Make package
+
+install
+    Make and install package
+
+==============================================================================
+2  MAPPINGS                                *pkgbuild-mappings*
+==============================================================================
+
+Not yet
+
+==============================================================================
+vim:tw=78:ft=help:norl:
