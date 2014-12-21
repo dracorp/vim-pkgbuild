@@ -2,8 +2,10 @@ PLUGIN = vim-pkgbuild
 DEST = ${HOME}/.vim
 
 SOURCE = after/syntax/sh.vim
+SOURCE += autoload/PKGBUILD.vim
 SOURCE += doc/pkgbuild.txt
-SOURCE += plugin/pkgbuild.vim
+SOURCE += ftplugin/PKGBUILD.vim
+SOURCE += plugin/PKGBUILD.vim
 
 all: ${PLUGIN}.vmb
 

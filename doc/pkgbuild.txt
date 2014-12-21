@@ -5,22 +5,26 @@
 0  TABLE OF CONTENTS                                *pkgbuild-contents*
 ==============================================================================
 
+1. Commands |pkgbuild-commands|
+2. Mappings |pkgbuild-mappings|
+3. Requirements |pkgbuild-requirements|
+
 
 ==============================================================================
 1  COMMANDS                                *pkgbuild-commands*
 ==============================================================================
 
-updpkgsums
+UpdPkgSums
     Generate md5sums or sha1sums, sha256sums, sha384sums, sha512sums (arrays)
     for a PKGBUILD. See 'man PKGBUILD' or 'man makepkg'
 
-mkaurball
+MakeAur (MakeSrc) [mkaurball options]
     Make source package ready to upload to AUR
 
-make
+MakePkg [makepkg options]
     Make package
 
-install
+Install
     Make and install package
 
 ==============================================================================
@@ -28,6 +32,14 @@ install
 ==============================================================================
 
 Not yet
+
+==============================================================================
+3  REQUIREMENTS                                *pkgbuild-requirements*
+==============================================================================
+
+* mkaurball from AUR package 'pkgbuild-introspection-git'
+* makepkg from pacman
+* burp from AUR package 'burp'
 
 ==============================================================================
 vim:tw=78:ft=help:norl:

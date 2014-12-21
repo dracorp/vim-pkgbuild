@@ -1,6 +1,6 @@
 " Vim syntax file
 " Language: sh
-" Maintainer: Piotr Rogoża
+" Maintainer: dracorp
 " Extends: sh.vim
 " Last change: 05.12.2014
 
