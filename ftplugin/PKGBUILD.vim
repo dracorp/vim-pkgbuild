@@ -1,3 +1,8 @@
+if exists("b:did_PKGBUILD_ftplugin")
+  finish
+endif
+let b:did_PKGBUILD_ftplugin = 1
+
 let s:clean_package='yes'
 setlocal ts=2 sw=2 et tw=100
 setlocal expandtab
@@ -49,7 +54,7 @@ endif
 if executable('makepkg')
     function! s:MakePkg(...) "{{{
         let l:args = join(a:000)
-        execute "!makepkg  " . l:args
+        execute "!makepkg -m " . l:args
     endfunction "}}}
     command! -nargs=0 Install call <SID>MakePkg('-i')
     command! -nargs=* MakePkg call <SID>MakePkg(<q-args>)
@@ -64,3 +69,18 @@ if executable('burp')
     endfunction "}}}
     command! -nargs=1 -complete=file Burp call <SID>Burp(<q-args>)
 endif
+
+if executable('updpkgsums')
+    command! -nargs=0 UpdPkgSums call ArchLinux#PKGBUILD#UpdPkgSums()
+endif
+" Menu Support: {{{2
+if has("gui_running") && has("menu") && &go =~ 'm'
+    if !exists("g:ArchTopLvlMenu")
+        let g:ArchTopLvlMenu= "ArchLinux."
+    endif
+    exe 'menu '.g:ArchTopLvlMenu.'PKGBUILD.updpkgsum<tab>:UpdPkgSums		:UpdPkgSums<cr>'
+    exe 'menu '.g:ArchTopLvlMenu.'PKGBUILD.makepkg<tab>:MakePkg		:MakePkg<cr>'
+    exe 'menu '.g:ArchTopLvlMenu.'PKGBUILD.mkaurballl<tab>:MakeAur		:MakeAur<cr>'
+endif
+
+" vim: ft=vim

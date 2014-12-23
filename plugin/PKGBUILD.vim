@@ -1,15 +1,19 @@
 " Vim plugin file
-" Language:     PKGBUILD
 " Maintainer:   dracorp <piotr.r.public at gmail.com>
 " URL:          https://github.com/dracorp/vim-pkgbuild
 
-" Init:
-if exists("g:pkgbuild_loaded") || &cp
+" Init Load Once:
+if exists("g:loaded_pkgbuild") || &cp
     finish
 endif
-let g:pkgbuild_loaded='0.2'
+let g:loaded_pkgbuild = '0.2'
+let s:keepcpo         = &cpo
+set cpo&vim
 
-augroup PkgbuildFile
-    au!
-    au BufNewFile,BufRead PKGBUILD,*.PKGBUILD set filetype=PKGBUILD syntax=sh
-augroup end
+ autocmd BufNewFile,BufRead PKGBUILD,*.PKGBUILD
+    \ set filetype=PKGBUILD syntax=sh
+
+"  Restore: {{{1
+let &cpo= s:keepcpo
+unlet s:keepcpo
+" vim: ft=vim
