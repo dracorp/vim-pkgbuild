@@ -5,9 +5,9 @@
 0  TABLE OF CONTENTS                                *pkgbuild-contents*
 ==============================================================================
 
-1. Commands |pkgbuild-commands|
-2. Mappings |pkgbuild-mappings|
-3. Requirements |pkgbuild-requirements|
+1. Commands                                             |pkgbuild-commands|
+2. Mappings                                             |pkgbuild-mappings|
+3. Requirements                                         |pkgbuild-requirements|
 
 
 ==============================================================================
@@ -27,6 +27,12 @@ MakePkg [makepkg options]
 Install
     Make and install package
 
+Burp
+    Upload source a package to the AUR
+
+Namcap
+    Testing a package with namcap
+
 ==============================================================================
 2  MAPPINGS                                *pkgbuild-mappings*
 ==============================================================================
@@ -37,8 +43,9 @@ Not yet
 3  REQUIREMENTS                                *pkgbuild-requirements*
 ==============================================================================
 
-* mkaurball from AUR package 'pkgbuild-introspection-git'
-* makepkg from pacman
+* makepkg from 'pacman'
+* namcap from 'namcap'
+* mkaurball from 'pkgbuild-introspection'
 * burp from AUR package 'burp'
 
 ==============================================================================

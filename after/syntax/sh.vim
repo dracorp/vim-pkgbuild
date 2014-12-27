@@ -4,12 +4,6 @@
 " Extends: sh.vim
 " Last Change: 05.12.2014
 
-if version < 600
-	syntax clear
-elseif exists("b:current_syntax")
-	finish
-endif
-
 syn case ignore
 syn keyword PkgMetaParam Maintainer Contributor
 
@@ -26,5 +20,3 @@ HiLink  PkgMetaValue String
 "highlight   PkgMetaValue       ctermfg=green guifg=green
 
 delcommand HiLink
-
-let b:current_syntax = "sh"
