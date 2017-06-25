@@ -49,7 +49,13 @@ if executable('mkaurball') "{{{2
         execute "!mkaurball -m " . l:args
     endfunction
     command! -nargs=? MakeAur call <SID>MakeAur(<q-args>)
-    command! -nargs=? MakeSrc call <SID>MakeAur(<q-args>)
+endif
+
+if executable('mksrcinfo')
+    function! s:MakeSrc(...)
+        execute "!mksrcinfo"
+    endfunction
+    command! -nargs=? MakeSrc call <SID>MakeSrc(<q-args>)
 endif
 if executable('makepkg') "{{{2
     function! s:MakePkg(...)
@@ -95,10 +101,8 @@ if has("gui_running") && has("menu") && &go =~ 'm'
     exe 'an    '.g:ArchTopLvlMenu.'-sep2-                           <Nop>'
     exe 'amenu '.g:ArchTopLvlMenu.'makepkg\ -&i<tab>:Install         :Install<cr>'
     exe 'an    '.g:ArchTopLvlMenu.'-sep3-                           <Nop>'
-    exe 'amenu '.g:ArchTopLvlMenu.'mk&aurball<tab>:MakeAur          :MakeAur<cr>'
-    exe 'amenu '.g:ArchTopLvlMenu.'mk&aurball\ -f<tab>:MakeAur\ -f  :MakeAur -f<cr>'
+    exe 'amenu '.g:ArchTopLvlMenu.'mk&srcinfo<tab>:MakeSrc          :MakeSrc<cr>'
     exe 'an    '.g:ArchTopLvlMenu.'-sep4-                           <Nop>'
-    exe 'amenu '.g:ArchTopLvlMenu.'&burp<tab>:Burp                  :Burp '
     exe 'amenu '.g:ArchTopLvlMenu.'&namcap<tab>:Namcap              :Namcap '
 "    let g:ArchTopLvlMenu-='&PKGBUILD.'
     exe 'an    '.g:ArchTopLvlMenu.'-sep5-                           <Nop>'
@@ -107,6 +111,7 @@ endif
 " Mapping: {{{2
 map <c-u> :UpdPkgSums<CR>
 map <c-b> :MakePkg<CR>
+map <c-s> :MakeSrc<CR>
 map <c-i> :Install<CR>
 map <c-n> :Namcap<CR>
 
