@@ -46,7 +46,7 @@ endfunction
 if executable('mkaurball') "{{{2
     function! s:MakeAur(...)
         let l:args = join(a:000)
-        execute "!mkaurball " . l:args
+        execute "!mkaurball -m " . l:args
     endfunction
     command! -nargs=? MakeAur call <SID>MakeAur(<q-args>)
     command! -nargs=? MakeSrc call <SID>MakeAur(<q-args>)
@@ -104,5 +104,10 @@ if has("gui_running") && has("menu") && &go =~ 'm'
     exe 'an    '.g:ArchTopLvlMenu.'-sep5-                           <Nop>'
     exe 'amenu '.g:ArchTopLvlMenu.'Help                             :he PKGBUILD<CR>'
 endif
+" Mapping: {{{2
+map <c-u> :UpdPkgSums<CR>
+map <c-b> :MakePkg<CR>
+map <c-i> :Install<CR>
+map <c-n> :Namcap<CR>
 
 " vim: ft=vim

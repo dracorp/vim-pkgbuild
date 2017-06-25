@@ -16,4 +16,5 @@ set cpo&vim
 "  Restore: {{{1
 let &cpo= s:keepcpo
 unlet s:keepcpo
+
 " vim: ft=vim

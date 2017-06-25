@@ -2,51 +2,62 @@
                             Plugin version 0.1
                                 Piotr Rogoża
 ==============================================================================
-0  TABLE OF CONTENTS                                *pkgbuild-contents*
+0  TABLE OF CONTENTS                                        *pkgbuild-contents*
 ==============================================================================
 
-1. Commands                                             |pkgbuild-commands|
-2. Mappings                                             |pkgbuild-mappings|
+1. Commands                                                 |pkgbuild-commands|
+2. Mappings                                                 |pkgbuild-mappings|
 3. Requirements                                         |pkgbuild-requirements|
 
 
 ==============================================================================
-1  COMMANDS                                *pkgbuild-commands*
+1  COMMANDS                                                 *pkgbuild-commands*
 ==============================================================================
 
 UpdPkgSums
     Generate md5sums or sha1sums, sha256sums, sha384sums, sha512sums (arrays)
     for a PKGBUILD. See 'man PKGBUILD' or 'man makepkg'
 
-MakeAur (MakeSrc) [mkaurball options]
-    Make source package ready to upload to AUR
+MakeAur (MakeSrc) [mkaurball options] (deprecated)
+    Make source package ready to upload to AUR.
+    Use git instead it, see https://wiki.archlinux.org/index.php/Arch_User_Repository#Creating_a_new_package
 
 MakePkg [makepkg options]
-    Make package
+    Make a package
 
 Install
-    Make and install package
+    Make and install a package
 
-Burp
-    Upload source a package to the AUR
+Burp (deprecated)
+    Upload source a package to the AUR.
+    Use git instead it, see https://wiki.archlinux.org/index.php/Arch_User_Repository#Uploading_packages
 
 Namcap
     Testing a package with namcap
 
 ==============================================================================
-2  MAPPINGS                                *pkgbuild-mappings*
+2  MAPPINGS                                                 *pkgbuild-mappings*
 ==============================================================================
 
-Not yet
+Ctrl-u
+    UpdPkgSums
+
+Ctrl-b
+    MakePkg
+
+Ctrl-i
+    Install
+
+Ctrl-n
+    Namcap
 
 ==============================================================================
-3  REQUIREMENTS                                *pkgbuild-requirements*
+3  REQUIREMENTS                                         *pkgbuild-requirements*
 ==============================================================================
 
-* makepkg from 'pacman'
-* namcap from 'namcap'
-* mkaurball from 'pkgbuild-introspection'
-* burp from AUR package 'burp'
+* makepkg from {pacman}
+* namcap from {namcap}
+* mkaurball from {pkgbuild-introspection}
+* burp from {burp}
 
-==============================================================================
 vim:tw=78:ft=help:norl:
